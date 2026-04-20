@@ -48,8 +48,8 @@ const categoryColor = work.data.category === 'ai-video' ? 'text-purple-400' : 't
       <img src={work.data.cover} alt={work.data.title} class="w-full object-cover" />
     </div>
 
-    <!-- Video embed (if exists) -->
-    {work.data.video && (
+    <!-- Video embed (YouTube iframe or local mp4) -->
+    {work.data.video && work.data.video.startsWith('http') && (
       <div class="mb-12 rounded-sm overflow-hidden border border-border aspect-video bg-surface">
         <iframe
           src={work.data.video}
@@ -57,6 +57,19 @@ const categoryColor = work.data.category === 'ai-video' ? 'text-purple-400' : 't
           frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
+        />
+      </div>
+    )}
+    {work.data.video && !work.data.video.startsWith('http') && (
+      <div class="mb-12 rounded-sm overflow-hidden border border-border bg-surface">
+        <video
+          src={work.data.video}
+          autoplay
+          loop
+          muted
+          playsinline
+          controls
+          class="w-full"
         />
       </div>
     )}
