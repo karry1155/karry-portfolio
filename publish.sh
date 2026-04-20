@@ -17,7 +17,7 @@ echo ""
 git status --short
 echo ""
 
-# 自动生成 commit 信息（取改动的文件名）
+# 自动生成 commit 信息
 CHANGED=$(git diff --name-only 2>/dev/null; git diff --cached --name-only 2>/dev/null)
 WORKS_CHANGED=$(echo "$CHANGED" | grep "content/works" | sed 's|src/content/works/||g' | sed 's|\.md||g' | tr '\n' ', ' | sed 's/,$//')
 
@@ -30,10 +30,23 @@ fi
 echo "💬 Commit 信息：$MSG"
 echo ""
 
+# 1. 推到 GitHub（备份）
 git add .
 git commit -m "$MSG"
 git push
+echo "✅ GitHub 备份完成"
+
+# 2. SSH 登录服务器，拉取最新代码并重新构建
+echo ""
+echo "🚀 部署到服务器..."
+ssh -p 24020 root@160.202.231.11 << 'REMOTE'
+  set -e
+  cd /var/www/karry-portfolio
+  git pull
+  npm install --prefer-offline
+  npm run build
+  echo "✅ 构建完成"
+REMOTE
 
 echo ""
-echo "🚀 已发布！Cloudflare 正在自动构建，约 1 分钟后生效。"
-echo "   https://folio.karry.asia"
+echo "🌐 上线：https://folio.karry.asia"
