@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Karry Shi — Graphic Design & AI Video' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="zh" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} — Karry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-bg text-white min-h-screen font-sans">
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="/" class="font-mono text-accent font-medium tracking-tight">karry.asia</a>
+      <div class="flex items-center gap-8 text-sm text-muted">
+        <a href="/" class="hover:text-white transition-colors">Works</a>
+        <a href="/about" class="hover:text-white transition-colors">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="pt-14">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border mt-24 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-sm text-muted">
+      <span class="font-mono">© 2026 Karry Shi</span>
+      <span>karry.asia</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkCard from '../components/WorkCard.astro';
+import { getCollection } from 'astro:content';
+
+const allWorks = await getCollection('works');
+const sorted = allWorks.sort((a, b) => b.data.date.localeCompare(a.data.date));
+
+const graphicWorks = sorted.filter(w => w.data.category === 'graphic-design');
+const videoWorks = sorted.filter(w => w.data.category === 'ai-video');
+const featured = sorted.filter(w => w.data.featured);
+---
+<BaseLayout title="Works">
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+    <div class="max-w-xl">
+      <p class="font-mono text-xs text-muted uppercase tracking-widest mb-4">Portfolio</p>
+      <h1 class="text-4xl font-light leading-tight text-white mb-5">
+        Graphic Design<br />
+        <span class="text-accent">& AI Video</span>
+      </h1>
+      <p class="text-muted text-base leading-relaxed">
+        Visual work spanning brand identity, digital design, and AI-generated video.
+        Updated directly from Obsidian.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter bar -->
+  <section class="max-w-6xl mx-auto px-6 mb-10">
+    <div class="flex gap-1 border-b border-border pb-4">
+      <button onclick="filterWorks('all')" id="btn-all" class="filter-btn active px-4 py-1.5 text-sm font-mono rounded-sm transition-all">
+        All ({sorted.length})
+      </button>
+      <button onclick="filterWorks('graphic-design')" id="btn-graphic-design" class="filter-btn px-4 py-1.5 text-sm font-mono rounded-sm transition-all">
+        Graphic ({graphicWorks.length})
+      </button>
+      <button onclick="filterWorks('ai-video')" id="btn-ai-video" class="filter-btn px-4 py-1.5 text-sm font-mono rounded-sm transition-all">
+        AI Video ({videoWorks.length})
+      </button>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section class="max-w-6xl mx-auto px-6 pb-24">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+      {sorted.map(work => (
+        <div class="work-item" data-category={work.data.category}>
+          <WorkCard
+            slug={work.slug}
+            title={work.data.title}
+            category={work.data.category}
+            cover={work.data.cover}
+            date={work.data.date}
+            tags={work.data.tags}
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .filter-btn {
+    color: #555;
+    background: transparent;
+    border: 1px solid transparent;
+  }
+  .filter-btn:hover {
+    color: #fff;
+  }
+  .filter-btn.active {
+    color: #e8ff47;
+    border-color: #e8ff47;
+    background: rgba(232, 255, 71, 0.05);
+  }
+</style>
+
+<script>
+  function filterWorks(category: string) {
+    const items = document.querySelectorAll('.work-item');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    document.getElementById(`btn-${category}`)?.classList.add('active');
+
+    items.forEach((item) => {
+      const el = item as HTMLElement;
+      if (category === 'all' || el.dataset.category === category) {
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+  (window as any).filterWorks = filterWorks;
+</script>
