@@ -75,14 +75,88 @@ const categoryColor = work.data.category === 'ai-video' ? 'text-purple-400' : 't
     )}
 
     <!-- Content -->
-    <div class="prose prose-invert prose-sm max-w-none
-      prose-headings:font-light prose-headings:text-white
-      prose-p:text-zinc-400 prose-p:leading-relaxed
-      prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-      prose-img:rounded-sm prose-img:border prose-img:border-border
-      prose-hr:border-border">
+    <div class="work-content max-w-none">
       <Content />
     </div>
 
   </article>
 </BaseLayout>
+
+<style>
+  .work-content {
+    color: #a1a1aa;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .work-content :global(p) {
+    margin: 0 0 1.25rem;
+  }
+
+  .work-content :global(h2) {
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid #222;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .work-content :global(h3) {
+    margin: 2rem 0 0.8rem;
+    color: #e8ff47;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .work-content :global(ul),
+  .work-content :global(ol) {
+    margin: 0 0 1.4rem 1.2rem;
+    padding-left: 1rem;
+  }
+
+  .work-content :global(ul) {
+    list-style: disc;
+  }
+
+  .work-content :global(ol) {
+    list-style: decimal;
+  }
+
+  .work-content :global(li) {
+    margin: 0.35rem 0;
+    padding-left: 0.2rem;
+  }
+
+  .work-content :global(a) {
+    color: #e8ff47;
+    text-decoration: none;
+  }
+
+  .work-content :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  .work-content :global(pre) {
+    margin: 1rem 0 1.4rem;
+    padding: 1rem;
+    border: 1px solid #222;
+    border-radius: 4px;
+    background: #111 !important;
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .work-content :global(code) {
+    color: #e4e4e7;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9rem;
+  }
+
+  .work-content :global(img) {
+    border: 1px solid #222;
+    border-radius: 4px;
+  }
+</style>
