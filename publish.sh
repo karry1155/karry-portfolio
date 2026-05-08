@@ -8,7 +8,7 @@ set -e
 cd "$(dirname "$0")"
 
 echo "📦 检查改动..."
-if git diff --quiet && git diff --cached --quiet; then
+if [ -z "$(git status --porcelain)" ]; then
   echo "✅ 没有新改动，无需发布。"
   exit 0
 fi
@@ -18,7 +18,7 @@ git status --short
 echo ""
 
 # 自动生成 commit 信息
-CHANGED=$(git diff --name-only 2>/dev/null; git diff --cached --name-only 2>/dev/null)
+CHANGED=$(git diff --name-only 2>/dev/null; git diff --cached --name-only 2>/dev/null; git ls-files --others --exclude-standard)
 WORKS_CHANGED=$(echo "$CHANGED" | grep "content/works" | sed 's|src/content/works/||g' | sed 's|\.md||g' | tr '\n' ', ' | sed 's/,$//')
 
 if [ -n "$WORKS_CHANGED" ]; then
