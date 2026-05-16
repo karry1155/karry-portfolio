@@ -1,5 +1,6 @@
 ---
 title: "Noma — Brand Identity"
+slug: "brand-identity-01"
 category: graphic-design
 cover: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80"
 date: "2025-12"

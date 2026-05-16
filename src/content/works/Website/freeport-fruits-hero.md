@@ -2,6 +2,7 @@
 title: "Freeport Fruits — 水果英雄网站"
 category: website
 cover: "/images/freeport-fruits-hero-cover.png"
+link: "https://news1.karry.asia/"
 date: "2026-05"
 tags: ["Website", "AI Design", "Cloudflare Pages"]
 featured: true

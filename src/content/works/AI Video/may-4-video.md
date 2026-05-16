@@ -1,5 +1,6 @@
 ---
 title: "剑客斗龙复刻"
+slug: "may-4-video"
 category: ai-video
 cover: "/images/may-4-video-cover.jpg"
 date: "2026-05-04"

@@ -6,6 +6,7 @@ const works = defineCollection({
     title: z.string(),
     category: z.enum(['graphic-design', 'ai-video', 'website']),
     cover: z.string(),
+    link: z.string().url().optional(),
     date: z.string(),
     tags: z.array(z.string()).optional(),
     video: z.string().optional(),

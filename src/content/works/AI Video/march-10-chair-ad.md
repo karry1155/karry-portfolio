@@ -1,5 +1,6 @@
 ---
 title: "人体工学椅创意广告"
+slug: "march-10-chair-ad"
 category: ai-video
 cover: "/images/march-10-chair-ad-cover.jpg"
 date: "2026-03-10"

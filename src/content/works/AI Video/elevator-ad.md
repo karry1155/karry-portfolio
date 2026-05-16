@@ -1,5 +1,6 @@
 ---
 title: "健茵宝电梯广告"
+slug: "elevator-ad"
 category: ai-video
 cover: "/images/elevator-ad-cover.jpg"
 date: "2026-01-12"

@@ -1,5 +1,6 @@
 ---
 title: "Frequency — Poster Series"
+slug: "poster-series-02"
 category: graphic-design
 cover: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
 date: "2025-09"

@@ -50,7 +50,13 @@ const categoryColor = categoryMeta[work.data.category]?.color ?? 'text-accent';
 
     <!-- Cover -->
     <div class="rounded-sm overflow-hidden border border-border mb-12">
-      <img src={work.data.cover} alt={work.data.title} class="w-full object-cover" />
+      {work.data.link ? (
+        <a href={work.data.link} target="_blank" rel="noopener noreferrer" class="group block">
+          <img src={work.data.cover} alt={work.data.title} class="w-full object-cover transition-transform duration-500 group-hover:scale-[1.015]" />
+        </a>
+      ) : (
+        <img src={work.data.cover} alt={work.data.title} class="w-full object-cover" />
+      )}
     </div>
 
     <!-- Video embed (YouTube iframe or local mp4) -->
