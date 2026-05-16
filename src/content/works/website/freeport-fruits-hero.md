@@ -1,30 +1,43 @@
 ---
-title: "Freeport Fruits — Fruit Hero Website"
+title: "Freeport Fruits — 水果英雄网站"
 category: website
 cover: "/images/freeport-fruits-hero-cover.png"
 date: "2026-05"
-tags: ["Website", "Hero Design", "Cloudflare Pages"]
+tags: ["Website", "AI Design", "Cloudflare Pages"]
 featured: true
 ---
 
-Freeport Fruits is a fruit-themed hero website built around oversized typography, playful character staging, and high-impact product storytelling. The site is live at [news1.karry.asia](https://news1.karry.asia/) and published from the [karry1155/freeport-fruits-hero](https://github.com/karry1155/freeport-fruits-hero.git) repository.
+这个项目的起点来自海南日报的一则新闻：[《2亿元中央资金支持！海南热带水果产业集群入选国家级立项名单》](http://news.hndaily.cn/html/2026-05/13/content_58465_19526699.htm)。新闻中提到海南热带水果产业集群入选国家级立项名单，我由此萌生了一个想法：如果把这类产业新闻从“信息阅读”转化成“视觉体验”，它会不会更容易被年轻受众记住？
 
-## Concept
+于是我把这次作品定义为一次新闻内容视觉化实验：以海南热带水果产业为主题，把政策、产业、地域和农产品信息，转译成一个具有角色感、海报感和网页互动感的水果英雄网站。
 
-The design treats each fruit as a bold visual character instead of a static product. The banana hero opens with a bright, graphic stage: a saturated yellow field, enormous headline typography, and a mascot-like figure that immediately anchors the brand mood.
+## 项目起点
 
-## Design Direction
+最初的素材不是品牌 brief，而是一篇真实新闻。新闻里的关键词包括“2亿元中央资金”“海南热带水果产业集群”“国家级立项名单”，这些信息本身偏政策和产业叙事，但背后其实有很强的视觉潜力：热带水果、海南地域、农业升级、产业集群、公共传播。
 
-The site uses a first-screen editorial layout with strong contrast between clean white type and vivid fruit color. Motion controls and directional navigation keep the experience feeling like a campaign microsite rather than a flat landing page.
+我希望它不只是被写成一篇说明文字，而是变成一个可以被点击、被浏览、被分享的视觉入口。
 
-## Publishing
+## 参考与方向
 
-The project is hosted as a static site through Cloudflare Pages under the custom domain `news1.karry.asia`, making it a public, shareable outcome separate from the main portfolio.
+在视觉方向上，我在 Motionsite 上寻找了动态网页和 hero section 的设计参考，重点观察了大标题、角色主体、色彩分区和页面切换的处理方式。最终选择用“水果英雄”的方式来表达产业主题：让水果不再只是农产品，而是成为具有个性、姿态和传播记忆点的 visual avatar。
 
-## Deliverables
+页面采用强烈的首屏构图：大号英文标题、明亮的水果主色、中心角色、左右切换按钮和中文产业信息，形成类似活动官网或品牌 campaign 的视觉感受。
 
-- Public website deployment
-- Cloudflare static hosting setup
-- Custom domain connection
-- Responsive hero experience
-- GitHub source repository
+## AI 设计流程
+
+我使用 AI 工具完成了 4 种水果 avatar 的视觉设计，并围绕每个水果角色整理页面文案信息。每个 avatar 都对应一种更具传播感的水果形象：更夸张、更拟人、更适合在网页首屏中承担“主视觉”的角色。
+
+在文案上，我没有直接照搬新闻原文，而是把产业信息重新整理为适合网页阅读的短句，让它既保留“海南热带水果产业”的真实来源，又更像一个可视化作品中的信息层。
+
+## 网站发布
+
+最终作品发布为一个可公开访问的网站：[news1.karry.asia](https://news1.karry.asia/)。项目源码托管在 [karry1155/freeport-fruits-hero](https://github.com/karry1155/freeport-fruits-hero.git)，并通过 Cloudflare 静态托管发布到公网。
+
+## 产出内容
+
+- 基于真实新闻的视觉化网页概念
+- 4 种水果 avatar 角色设计
+- 水果产业主题页面文案
+- Motionsite 参考下的 hero page 视觉布局
+- GitHub 仓库发布与 Cloudflare 静态托管
+- 公网访问地址 `news1.karry.asia`
