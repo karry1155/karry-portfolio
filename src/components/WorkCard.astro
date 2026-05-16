@@ -9,8 +9,13 @@ export interface Props {
 }
 const { slug, title, category, cover, date, tags = [] } = Astro.props;
 
-const categoryLabel = category === 'graphic-design' ? 'Graphic Design' : 'AI Video';
-const categoryColor = category === 'ai-video' ? 'text-purple-400' : 'text-accent';
+const categoryMeta = {
+  'graphic-design': { label: 'Graphic Design', color: 'text-accent' },
+  'ai-video': { label: 'AI Video', color: 'text-purple-400' },
+  website: { label: 'Website', color: 'text-sky-400' },
+};
+const categoryLabel = categoryMeta[category as keyof typeof categoryMeta]?.label ?? category;
+const categoryColor = categoryMeta[category as keyof typeof categoryMeta]?.color ?? 'text-accent';
 ---
 <a href={`/works/${slug}`} class="group block">
   <div class="relative overflow-hidden rounded-sm bg-surface border border-border aspect-[4/3]">

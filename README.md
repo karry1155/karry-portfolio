@@ -17,7 +17,7 @@ Create a new `.md` file in `src/content/works/`. Frontmatter template:
 ```yaml
 ---
 title: "Project Title"
-category: graphic-design   # or: ai-video
+category: graphic-design   # or: ai-video / website
 cover: "/images/your-image.jpg"   # or an external URL
 date: "2026-04"
 tags: ["Tag1", "Tag2"]
