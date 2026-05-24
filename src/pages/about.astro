@@ -1,32 +1,107 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="About">
-  <section class="max-w-2xl mx-auto px-6 py-24">
-    <p class="font-mono text-xs text-muted uppercase tracking-widest mb-8">About</p>
-
-    <h1 class="text-3xl font-light text-white mb-8">Karry Shi</h1>
-
-    <div class="space-y-5 text-zinc-400 leading-relaxed text-base">
-      <p>
-        Designer and AI video creator based in China. Working at the intersection of
-        visual communication and generative media.
-      </p>
-      <p>
-        This portfolio is updated directly from Obsidian — each project is a note,
-        published automatically via GitHub and Cloudflare Pages.
-      </p>
-      <p>
-        Currently exploring AI-generated video workflows, brand identity systems,
-        and motion design.
-      </p>
+<BaseLayout title="Resume" description="Karry Shi 的个人简历与作品项目">
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end border-b border-border pb-12">
+      <div>
+        <p class="font-mono text-xs text-muted uppercase tracking-widest mb-6">Resume</p>
+        <h1 class="text-4xl sm:text-5xl font-light text-white leading-tight mb-6">Karry Shi</h1>
+        <p class="text-lg text-zinc-300 leading-relaxed max-w-2xl">
+          视觉设计、AI 视频与网页工具实践者。关注怎样把真实问题整理成可发布的作品：
+          从素材梳理、内容结构、视觉表达，到静态网站和轻量互动工具上线。
+        </p>
+      </div>
+      <div class="rounded-sm border border-border bg-surface/60 p-6">
+        <p class="text-sm text-muted font-mono mb-4">Contact</p>
+        <a href="mailto:shikairui11@gmail.com" class="text-accent hover:underline font-mono text-sm">
+          shikairui11@gmail.com
+        </a>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <a href="https://karry.asia" class="text-xs text-zinc-300 border border-border px-2.5 py-1 rounded-sm hover:text-white transition-colors">karry.asia</a>
+          <a href="https://github.com/karry1155" class="text-xs text-zinc-300 border border-border px-2.5 py-1 rounded-sm hover:text-white transition-colors">GitHub</a>
+        </div>
+      </div>
     </div>
 
-    <div class="mt-16 pt-8 border-t border-border">
-      <p class="text-sm text-muted font-mono mb-4">Contact</p>
-      <a href="mailto:shikairui11@gmail.com" class="text-accent hover:underline font-mono text-sm">
-        shikairui11@gmail.com
-      </a>
+    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] py-12 border-b border-border">
+      <div>
+        <h2 class="text-xl font-light text-white mb-3">核心能力</h2>
+        <p class="text-sm text-muted leading-relaxed">
+          更擅长从具体场景出发，把零散内容整理成清晰的视觉和产品体验。
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ['真实问题拆解', '从学习、内容和传播场景里发现具体痛点，并拆成可执行的小步骤。'],
+          ['AI 协作流程', '用 AI 辅助完成内容整理、题库清洗、视频生成、视觉方案和迭代复盘。'],
+          ['网页作品落地', '能独立完成静态网站、互动页面、作品集内容和 Cloudflare Pages 发布。'],
+          ['反馈驱动迭代', '根据真实使用反馈调整入口、信息层级和功能优先级，必要时敢于回滚重做。'],
+        ].map(([title, body]) => (
+          <div class="border border-border bg-surface/50 rounded-sm p-5">
+            <h3 class="text-white text-sm font-medium mb-2">{title}</h3>
+            <p class="text-sm text-muted leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] py-12 border-b border-border">
+      <div>
+        <h2 class="text-xl font-light text-white mb-3">代表项目</h2>
+        <p class="text-sm text-muted leading-relaxed">
+          从无法复制的题库，到同学可直接使用的在线刷题工具。
+        </p>
+      </div>
+      <div class="space-y-6">
+        <div>
+          <div class="flex flex-wrap items-center gap-3 mb-3">
+            <h3 class="text-lg text-white font-medium">跨境电商五级考前训练舱</h3>
+            <span class="text-xs font-mono text-accent">2026.05</span>
+          </div>
+          <p class="text-zinc-400 leading-relaxed mb-4">
+            将培训学校的 1218 道选择判断题整理成可检索、可训练、可复盘的在线工具。
+            项目包含拼音检索、三档训练强度、即时反馈、错题记录、收藏重点、简答题入口和匿名统计后台。
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+            {[
+              ['1218', '原始题库'],
+              ['373', '精简训练'],
+              ['88', '极简重点'],
+              ['0 登录', '匿名使用'],
+            ].map(([value, label]) => (
+              <div class="border border-border bg-surface/50 rounded-sm p-4">
+                <p class="text-2xl text-white font-mono">{value}</p>
+                <p class="text-xs text-muted mt-1">{label}</p>
+              </div>
+            ))}
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <a href="/works/website/cross-border-exam-training" class="text-xs text-bg bg-accent px-3 py-1.5 rounded-sm font-mono hover:opacity-90 transition-opacity">View case</a>
+            <a href="https://ks.karry.asia/" class="text-xs text-zinc-300 border border-border px-3 py-1.5 rounded-sm font-mono hover:text-white transition-colors">Live site</a>
+            <a href="https://github.com/karry1155/cross-border-exam-practice" class="text-xs text-zinc-300 border border-border px-3 py-1.5 rounded-sm font-mono hover:text-white transition-colors">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] py-12">
+      <div>
+        <h2 class="text-xl font-light text-white mb-3">实践方向</h2>
+        <p class="text-sm text-muted leading-relaxed">
+          当前作品主要围绕网页、AI 视频和视觉系统展开。
+        </p>
+      </div>
+      <div class="space-y-5 text-zinc-400 leading-relaxed">
+        <p>
+          我会继续把作品集当成一个持续更新的个人工作台：每个项目都从一篇整理好的笔记开始，
+          再通过 GitHub 和 Cloudflare Pages 发布成可访问的网页。
+        </p>
+        <p>
+          近期重点是把 AI 生成内容转化成更完整的交互体验，例如滚动叙事网页、新闻视觉化页面，
+          以及能解决真实学习问题的小工具。
+        </p>
+      </div>
     </div>
   </section>
 </BaseLayout>
