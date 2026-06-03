@@ -2,9 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Resume" description="Karry Shi 的个人简历与作品项目">
-  <section class="max-w-5xl mx-auto px-6 py-20">
+  <section class="resume-stage max-w-5xl mx-auto px-6 py-20">
+    <div class="resume-glow" aria-hidden="true"></div>
+
     <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end border-b border-border pb-12">
-      <div>
+      <div class="motion-in">
         <p class="font-mono text-xs text-muted uppercase tracking-widest mb-6">Resume</p>
         <h1 class="text-4xl sm:text-5xl font-light text-white leading-tight mb-6">Karry Shi</h1>
         <p class="text-lg text-zinc-300 leading-relaxed max-w-2xl">
@@ -12,19 +14,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           从素材梳理、内容结构、视觉表达，到静态网站和轻量互动工具上线。
         </p>
       </div>
-      <div class="rounded-sm border border-border bg-surface/60 p-6">
-        <p class="text-sm text-muted font-mono mb-4">Contact</p>
-        <a href="mailto:shikairui11@gmail.com" class="text-accent hover:underline font-mono text-sm">
-          shikairui11@gmail.com
-        </a>
-        <div class="mt-6 flex flex-wrap gap-2">
-          <a href="https://karry.asia" class="text-xs text-zinc-300 border border-border px-2.5 py-1 rounded-sm hover:text-white transition-colors">karry.asia</a>
-          <a href="https://github.com/karry1155" class="text-xs text-zinc-300 border border-border px-2.5 py-1 rounded-sm hover:text-white transition-colors">GitHub</a>
+
+      <div class="motion-in motion-delay-1">
+        <div class="resume-avatar" data-tilt aria-hidden="true">
+          <div class="avatar-grid"></div>
+          <div class="avatar-ring"></div>
+          <div class="avatar-core">
+            <span>K</span>
+          </div>
+          <div class="avatar-chip chip-web">WEB</div>
+          <div class="avatar-chip chip-ai">AI</div>
+        </div>
+
+        <div class="tilt-card mt-5 rounded-sm border border-border bg-surface/60 p-6" data-tilt>
+          <p class="text-sm text-muted font-mono mb-4">Contact</p>
+          <a href="mailto:shikairui11@gmail.com" class="text-accent hover:underline font-mono text-sm">
+            shikairui11@gmail.com
+          </a>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <a href="https://karry.asia" class="text-xs text-zinc-300 border border-border px-2.5 py-1 rounded-sm hover:text-white transition-colors">karry.asia</a>
+            <a href="https://github.com/karry1155" class="text-xs text-zinc-300 border border-border px-2.5 py-1 rounded-sm hover:text-white transition-colors">GitHub</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] py-12 border-b border-border">
+    <div class="motion-in grid gap-10 lg:grid-cols-[0.85fr_1.15fr] py-12 border-b border-border">
       <div>
         <h2 class="text-xl font-light text-white mb-3">核心能力</h2>
         <p class="text-sm text-muted leading-relaxed">
@@ -38,7 +53,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           ['网页作品落地', '能独立完成静态网站、互动页面、作品集内容和 Cloudflare Pages 发布。'],
           ['反馈驱动迭代', '根据真实使用反馈调整入口、信息层级和功能优先级，必要时敢于回滚重做。'],
         ].map(([title, body]) => (
-          <div class="border border-border bg-surface/50 rounded-sm p-5">
+          <div class="tilt-card border border-border bg-surface/50 rounded-sm p-5" data-tilt>
             <h3 class="text-white text-sm font-medium mb-2">{title}</h3>
             <p class="text-sm text-muted leading-relaxed">{body}</p>
           </div>
@@ -46,46 +61,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
 
-    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] py-12 border-b border-border">
-      <div>
-        <h2 class="text-xl font-light text-white mb-3">代表项目</h2>
-        <p class="text-sm text-muted leading-relaxed">
-          从无法复制的题库，到同学可直接使用的在线刷题工具。
-        </p>
-      </div>
-      <div class="space-y-6">
-        <div>
-          <div class="flex flex-wrap items-center gap-3 mb-3">
-            <h3 class="text-lg text-white font-medium">跨境电商五级考前训练舱</h3>
-            <span class="text-xs font-mono text-accent">2026.05</span>
-          </div>
-          <p class="text-zinc-400 leading-relaxed mb-4">
-            将培训学校的 1218 道选择判断题整理成可检索、可训练、可复盘的在线工具。
-            项目包含拼音检索、三档训练强度、即时反馈、错题记录、收藏重点、简答题入口和匿名统计后台。
-          </p>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-            {[
-              ['1218', '原始题库'],
-              ['373', '精简训练'],
-              ['88', '极简重点'],
-              ['0 登录', '匿名使用'],
-            ].map(([value, label]) => (
-              <div class="border border-border bg-surface/50 rounded-sm p-4">
-                <p class="text-2xl text-white font-mono">{value}</p>
-                <p class="text-xs text-muted mt-1">{label}</p>
-              </div>
-            ))}
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <a href="/works/website/cross-border-exam-training" class="text-xs text-bg bg-accent px-3 py-1.5 rounded-sm font-mono hover:opacity-90 transition-opacity">View case</a>
-            <a href="https://ks.karry.asia/" class="text-xs text-zinc-300 border border-border px-3 py-1.5 rounded-sm font-mono hover:text-white transition-colors">Live site</a>
-            <a href="https://github.com/karry1155/cross-border-exam-practice" class="text-xs text-zinc-300 border border-border px-3 py-1.5 rounded-sm font-mono hover:text-white transition-colors">GitHub</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] py-12">
+    <div class="motion-in grid gap-10 lg:grid-cols-[0.85fr_1.15fr] py-12">
       <div>
         <h2 class="text-xl font-light text-white mb-3">实践方向</h2>
         <p class="text-sm text-muted leading-relaxed">
@@ -105,3 +81,203 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .resume-stage {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .resume-glow {
+    position: fixed;
+    left: var(--cursor-x, 70%);
+    top: var(--cursor-y, 24%);
+    z-index: -1;
+    width: min(34rem, 80vw);
+    aspect-ratio: 1;
+    pointer-events: none;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, rgba(232, 255, 71, 0.14), rgba(232, 255, 71, 0.03) 38%, transparent 68%);
+    filter: blur(18px);
+    transform: translate(-50%, -50%);
+    transition: left 180ms ease-out, top 180ms ease-out;
+  }
+
+  .motion-in {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 700ms ease, transform 700ms ease;
+  }
+
+  .motion-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .motion-delay-1 {
+    transition-delay: 120ms;
+  }
+
+  .tilt-card,
+  .resume-avatar {
+    transform:
+      perspective(900px)
+      rotateX(var(--tilt-x, 0deg))
+      rotateY(var(--tilt-y, 0deg))
+      translate3d(0, 0, 0);
+    transition: transform 180ms ease-out, border-color 180ms ease-out, background-color 180ms ease-out;
+    will-change: transform;
+  }
+
+  .tilt-card:hover {
+    border-color: rgba(232, 255, 71, 0.36);
+    background-color: rgba(255, 255, 255, 0.045);
+  }
+
+  .resume-avatar {
+    position: relative;
+    min-height: 260px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(232, 255, 71, 0.18), transparent 34%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.015));
+  }
+
+  .avatar-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(circle at 50% 45%, black, transparent 72%);
+    opacity: 0.7;
+  }
+
+  .avatar-ring,
+  .avatar-core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+  }
+
+  .avatar-ring {
+    width: 150px;
+    aspect-ratio: 1;
+    border: 1px solid rgba(232, 255, 71, 0.55);
+    box-shadow: 0 0 44px rgba(232, 255, 71, 0.1);
+    animation: slow-spin 12s linear infinite;
+  }
+
+  .avatar-ring::before,
+  .avatar-ring::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: inherit;
+  }
+
+  .avatar-ring::after {
+    inset: -16px;
+    border-color: rgba(255, 255, 255, 0.08);
+    border-top-color: rgba(232, 255, 71, 0.5);
+  }
+
+  .avatar-core {
+    display: grid;
+    width: 96px;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid rgba(232, 255, 71, 0.42);
+    background: #0a0a0a;
+    color: #e8ff47;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 2.4rem;
+    box-shadow: inset 0 0 28px rgba(232, 255, 71, 0.12);
+  }
+
+  .avatar-chip {
+    position: absolute;
+    border: 1px solid rgba(232, 255, 71, 0.28);
+    background: rgba(10, 10, 10, 0.72);
+    color: #e8ff47;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    padding: 0.28rem 0.48rem;
+  }
+
+  .chip-web {
+    left: 1.25rem;
+    bottom: 1.25rem;
+  }
+
+  .chip-ai {
+    right: 1.25rem;
+    top: 1.25rem;
+  }
+
+  @keyframes slow-spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .motion-in,
+    .tilt-card,
+    .resume-avatar,
+    .resume-glow {
+      transition: none;
+    }
+
+    .avatar-ring {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const motionItems = document.querySelectorAll('.motion-in');
+  const tiltItems = document.querySelectorAll<HTMLElement>('[data-tilt]');
+  const root = document.documentElement;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  motionItems.forEach((item) => revealObserver.observe(item));
+
+  if (!reduceMotion) {
+    window.addEventListener('pointermove', (event) => {
+      root.style.setProperty('--cursor-x', `${event.clientX}px`);
+      root.style.setProperty('--cursor-y', `${event.clientY}px`);
+    }, { passive: true });
+
+    tiltItems.forEach((item) => {
+      item.addEventListener('pointermove', (event) => {
+        const rect = item.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        item.style.setProperty('--tilt-x', `${y * -7}deg`);
+        item.style.setProperty('--tilt-y', `${x * 7}deg`);
+      });
+
+      item.addEventListener('pointerleave', () => {
+        item.style.setProperty('--tilt-x', '0deg');
+        item.style.setProperty('--tilt-y', '0deg');
+      });
+    });
+  }
+</script>
