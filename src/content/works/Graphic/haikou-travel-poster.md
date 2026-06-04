@@ -59,7 +59,7 @@ featured: true
 
 第四张走当代滨海极简方向。它保留大面积留白，用更少的元素表现海口湾、世纪大桥、云洞图书馆、骑楼、钟楼、清补凉和电动车。
 
-![海口旅行海报：当代滨海极简方向](/images/haikou-poster-coastal-minimalism.png)
+![海口旅行海报：当代滨海极简方向](/images/haikou-poster-coastal-minimalism_edited.png)
 
 这版的价值在于克制。它没有把所有调研元素都塞满，而是让画面更像设计商店里的收藏海报。对比第三张，它少了市井密度，但多了高级感和呼吸感。
 
